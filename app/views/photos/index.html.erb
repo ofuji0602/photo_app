@@ -1,0 +1,12 @@
+<h1>写真一覧</h1>
+
+<% @photos.each do |photo| %>
+  <div class="photo">
+    <h2><%= photo.title %></h2>
+    <% if photo.image.attached? %>
+      <%= image_tag photo.image.variant(resize: "300x300").processed %>
+    <% else %>
+      <p>画像はありません</p>
+    <% end %>
+  </div>
+<% end %>
