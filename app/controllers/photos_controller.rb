@@ -3,6 +3,10 @@ class PhotosController < ApplicationController
     @photo = Photo.new
   end
 
+  def index
+    @photos = Photo.all
+  end
+
   def create
     @photo = Photo.new(photo_params)
     if @photo.save
