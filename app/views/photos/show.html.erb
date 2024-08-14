@@ -1,6 +1,10 @@
 <h1><%= @photo.title %></h1>
 
-<%= image_tag @photo.image %>
+<% if @photo.image.attached? %>
+  <%= image_tag @photo.image, class: "w-full h-auto object-cover rounded" %>
+<% else %>
+  <p class="text-gray-500">画像はありません</p>
+<% end %>
 
 <%= link_to '戻る', root_path %>
 <%= link_to '写真一覧を見る', photos_path %>
